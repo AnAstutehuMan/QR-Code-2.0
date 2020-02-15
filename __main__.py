@@ -1,5 +1,3 @@
-import time
-import math
 import pytesseract
 import os
 import shutil
