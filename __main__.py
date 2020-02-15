@@ -7,16 +7,19 @@ import time
 import qrcode
 from PIL import Image
 
-qr = qrcode.QRCode(
-    version=1,
-    box_size=20,
-    border=4
-)
-
-filename = "test.jpg"
+filename = "test.png"
 readablefile = open(filename, "rb")
-encoded = base64.b64encode(readablefile.read())
+convfile = base64.b64encode(readablefile.read())
 
-qrcode.make(encoded)
+# Convert Base64 to QR Code
+qr = qrcode.QRCode(
+    version=30,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data(convfile)  # encoded is the data from Base64
+qr.make(fit=True)
 
-input()
+img = qr.make_image(fill_color="black", back_color="white")
+img.save('qr.jpg')
