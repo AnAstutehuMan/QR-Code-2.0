@@ -1,3 +1,4 @@
 import time
 import math
-import pytesseract
+import base64
+import pytesseract 
