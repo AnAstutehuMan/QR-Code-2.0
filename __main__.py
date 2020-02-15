@@ -22,4 +22,4 @@ qr.add_data(convfile)  # encoded is the data from Base64
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="black", back_color="white")
-img.save('qr.jpg')
+img.save('qr.png')
