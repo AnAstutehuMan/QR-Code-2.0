@@ -1,11 +1,11 @@
-import time
+import base64
 import math
-import qrcode
 import os
 import shutil
-import base64
-from PIL import Image     
-import qrcode 
+import time
+
+import qrcode
+from PIL import Image
 
 filename = "test.jpg"
 readablefile = open(filename, "rb")
