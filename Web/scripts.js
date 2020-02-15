@@ -23,5 +23,6 @@ navigator.mediaDevices.getUserMedia(
 ).then(function(stream) {
     video.srcObject = stream;
     video.setAttribute("playsinline", true);
-    
-})
+    video.play();
+    requestAnimationFrame(tick);
+}); 
