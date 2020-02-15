@@ -8,19 +8,15 @@ var outputData = document.getElementById("outputData");
 
 function drawLine(begin, end, color) {
     canvas.beginPath();
-    canvas.moveTo();
-    canvas.lineTo(begin.x, begin.y);
+    canvas.moveTo(begin.x, begin.y);
+    canvas.lineTo(end.x, end.y);
     canvas.lineWidth = 4;
     canvas.strokeStyle = color;
     canvas.stroke();
 }
 
 // facing mode thingy
-navigator.mediaDevices.getUserMedia(
-    {
-        facingMode: "environment"
-    }
-).then(function(stream) {
+navigator.mediaDevices.getUserMedia({facingMode: "environment"}).then(function(stream) {
     video.srcObject = stream;
     video.setAttribute("playsinline", true);
     video.play();
