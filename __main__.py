@@ -1,6 +1,6 @@
 import time
 import math
-import pytesseract
+import qrcode
 import os
 import shutil
 import base64
