@@ -3,6 +3,7 @@ import os
 import shutil
 import base64
 from PIL import Image     
+import qrcode 
 
 filename = "test.jpg"
 shutil.copyfile(filename,'copy-'+filename)
