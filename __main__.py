@@ -1,10 +1,11 @@
-import time
+import base64
 import math
-import qrcode
 import os
 import shutil
-import base64
-from PIL import Image     
+import time
+
+import qrcode
+from PIL import Image
 
 qr = qrcode.QRCode(
     version=1,
