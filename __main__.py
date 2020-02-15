@@ -14,7 +14,7 @@ encoded = base64.b64encode(readablefile.read())
 qrCode = qrcode.make(encoded)
 
 # print(encoded)
-input()
+# input()
 
 # Convert Base64 to QR Code
 qr = qrcode.QRCode(
