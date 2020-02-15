@@ -4,6 +4,7 @@ import os
 import shutil
 import time
 
+import PIL
 import qrcode
 from PIL import Image
 
