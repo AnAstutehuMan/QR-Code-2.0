@@ -6,11 +6,12 @@ import time
 
 import PIL
 import qrcode
+import qrcode.image.svg 
 from PIL import Image
 
 filename = "test.png"
 readablefile = open(filename, "rb")
-convfile = base64.b64encode(readablefile.read())
+convfile = base64.urlsafe_b64encode(readablefile.read())
 
 # Convert Base64 to QR Code
 qr = qrcode.QRCode(
@@ -23,6 +24,8 @@ qr.add_data(convfile)  # encoded is the data from Base64
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="black", back_color="white")
-img.save('qr.webp')
+img.save('qr.png')
+
+
 
 input("Done")
