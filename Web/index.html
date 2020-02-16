@@ -107,18 +107,19 @@
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
+        } else if (outputData[outputData.length - 1] == '=') {
+          console.log(outputData.data);
+          canvasElement.hidden = true;
+          outputContainer.hidden = true;
+          canvasElement.hidden = true; 
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
-        }
+        } 
       }
       requestAnimationFrame(tick);
 
-      if (outputData[outputData.length - 1] == '=') {
-        console.log(outputData.data);
-        canvasElement.hidden = true;
-        outputContainer.hidden = true;
-      }
+      
 
 
     }
