@@ -48,10 +48,10 @@
 </head>
 
 <body>
-  <h1>QR Image Scanner</h1>
+  <h1>QR 2.0 Scanner</h1>
 
   <p>Give access to camera.</p>
-  <div id="loadingMessage"> Unable to access video stream </div>
+  <div id="loadingMessage"> Unable to access video stream ;( </div>
   <canvas id="canvas" hidden></canvas>
   <div id="output" hidden>
     <div id="outputMessage">No QR code detected.</div>
@@ -127,14 +127,14 @@
         containerWidth = null,
         containerHeight = null;
 
-      image.onload = function() {
+      image.onload = function () {
         containerHeight = image.height;
         containerWidth = image.width;
       }
 
-      image.src = outputData; 
-      
-      
+      image.src = outputData;
+
+
     }
   </script>
 </body>
