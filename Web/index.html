@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Generic Title</title>
+  <title>QR Image</title>
   <script src="./jsQR.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
   <style>
@@ -48,9 +48,9 @@
 </head>
 
 <body>
-  <h1>qr thing</h1>
+  <h1>QR Image Scanner</h1>
 
-  <p>A cool thing</p>
+  <p>Give access to camera.</p>
   <div id="loadingMessage"> Unable to access video stream </div>
   <canvas id="canvas" hidden></canvas>
   <div id="output" hidden>
@@ -115,15 +115,13 @@
       }
       requestAnimationFrame(tick);
 
-      var length = outputData
-
       //      console.log(outputData);
-      if (outputData.charAt() = "=") {
+      if (outputData.charAt(length) = "=") {
         console.log(outputData);
-        canvasElement.hidden = true; 
-        outputContainer.hidden = true; 
-        
+        canvasElement.hidden = true;
+        outputContainer.hidden = true;
       }
+
 
     }
   </script>
