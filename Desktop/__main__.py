@@ -11,7 +11,8 @@ import qrcode.image.svg
 from PIL import Image
 
 def reSize(path):
-    newImg = Image.open(path)
+    rootdir = os.path.join(os.path.dirname(os.path.realpath(__file__)),path)
+    newImg = Image.open(rootdir)
     width = 150
     ratio = width/float(newImg.size[0])
     height = int(float(newImg.size[1])*ratio)
@@ -19,10 +20,10 @@ def reSize(path):
     print(ratio)
 
     newImg = newImg.resize((width, height))
-    newImg.convert('RGB').save('Resized/'+path)
+    newImg.convert('RGB').save('resized/'+path)
 
     # Convert Image to Base64
-    readablefile = open('Resized/' + path, "rb")
+    readablefile = open('resized/' + path, "rb")
     convFile = base64.b64encode(readablefile.read())
 
     base64ToQR(convFile, path)
@@ -44,7 +45,7 @@ def base64ToQR(convFile, path):
     qr.make(fit=True)
     newImageToGenerate = qr.make_image(fill_color="black", back_color="white")
 
-    newImageToGenerate.save('QR/QR - ' + path)
+    newImageToGenerate.save('qr/QR - ' + path)
 
 
 window = tkinter.Tk()
@@ -58,7 +59,7 @@ fileName.grid(column=1, row=0)
 
 
 def clicked():
-    path = str(Path(fileName.get()).resolve())
+    path = fileName.get()
     print(path)
     lbl.configure(text="Converting the Image to QR")
     reSize(path)
