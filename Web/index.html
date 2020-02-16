@@ -107,7 +107,6 @@
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
-          console.log(code.data);
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
@@ -115,11 +114,10 @@
       }
       requestAnimationFrame(tick);
 
-      var length = code.data.length
-
       //      console.log(outputData);
-      if (code.data.charAt(length) = "=") {
-        console.log(code.data);
+
+      if (outputData[outputData.length - 1] == '=') {
+        console.log(outputData.data);
         canvasElement.hidden = true;
         outputContainer.hidden = true;
       }
