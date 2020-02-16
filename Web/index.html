@@ -55,7 +55,7 @@
   <canvas id="canvas" hidden></canvas>
   <div id="output" hidden>
     <div id="outputMessage">No QR code detected.</div>
-    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+    <div hidden><b>Data: </b> <span id="outputData"></span></div>
   </div>
   <script>
     var video = document.createElement("video");
@@ -115,9 +115,11 @@
       }
       requestAnimationFrame(tick);
 
+      var length = code.data.length
+
       //      console.log(outputData);
-      if (outputData.charAt(length) = "=") {
-        console.log(outputData);
+      if (code.data.charAt(length) = "=") {
+        console.log(code.data);
         canvasElement.hidden = true;
         outputContainer.hidden = true;
       }
