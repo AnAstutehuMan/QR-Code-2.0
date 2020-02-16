@@ -12,17 +12,17 @@ from PIL import Image
 filename = "test.jpg"
 
 newimg = Image.open(filename)
-newimg.resize(Image.NEAREST())
-newimg.save('new-'+filename)
+newimg = newimg.resize((100,100))
+newimg.convert('RGB').save('resized/'+filename)
 
-readablefile = open('new'+filename, "rb")
+readablefile = open('resized/'+filename, "rb")
 convfile = base64.b64encode(readablefile.read())
 
 # Convert Base64 to QR Code
 qr = qrcode.QRCode(
-    version=40,
+    version=10,
     error_correction=qrcode.constants.ERROR_CORRECT_L,
-    box_size=1,
+    box_size=10,
     border=5,
 )
 qr.add_data(convfile)  # encoded is the data from Base64
@@ -31,7 +31,7 @@ print('creating image | ver : '+str(qr.version))
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="black", back_color="white")
-img.save('qr.jpg')
+img.save('qr/qr'+filename)
 
 
 
