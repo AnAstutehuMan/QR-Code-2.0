@@ -12,7 +12,7 @@ from PIL import Image
 filename = "test.jpg"
 
 newimg = Image.open(filename)
-newimg = newimg.resize((100,100))
+newimg = newimg.resize((100, 100))
 newimg.convert('RGB').save('resized/'+filename)
 
 readablefile = open('resized/'+filename, "rb")
@@ -31,6 +31,6 @@ print('creating image | ver : '+str(qr.version))
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="black", back_color="white")
-img.save('qr/qr'+filename)
+img.save('QR/' + filename + 'QR')
 
-input("Done")
+print("Done")
