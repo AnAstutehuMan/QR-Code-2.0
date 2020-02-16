@@ -3,19 +3,19 @@ import math
 import os
 import shutil
 import time
-from tkinter import *
+import tkinter
 import PIL
 import qrcode
 import qrcode.image.svg 
 from PIL import Image
 
-main = Tk()
+main = tkinter.Tk()
 
-title = Label(main, text = "BASE-64 Image to QR")
-title.grid()
+title = tkinter.Label(main, text = "BASE-64 Image to QR")
+title.grid(row = '1', column = '1')
 
-fileselector = Entry(main)
-fileselector.grid()
+fileselector = tkinter.Entry(main)
+fileselector.grid(row = '2', column = '1')
 
 filename = "test.jpg"
 
