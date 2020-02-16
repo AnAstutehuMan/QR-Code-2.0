@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <script src="jsQR.js"></script>
-    <title>QR Code 2.0</title>
-    <meta name="description"
-        content="The Modern Era QR Code that can store and decode images without a man-in-the-middle!">
+  <meta charset="utf-8">
+  <script src="jsQR.js"></script>
+  <title>QR Code 2.0</title>
+  <meta name="description"
+    content="The Modern Era QR Code that can store and decode images without a man-in-the-middle!">
 
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <script>
-        var video = document.createElement("video");
+  <script>
+    var video = document.createElement("video");
     var canvasElement = document.getElementById("canvas");
     var canvas = canvasElement.getContext("2d");
     var loadingMessage = document.getElementById("loadingMessage");
@@ -31,7 +31,11 @@
     }
 
     // Use facingMode: environment to attemt to get the front camera on phones
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: "environment"
+      }
+    }).then(function (stream) {
       video.srcObject = stream;
       video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
       video.play();
@@ -67,17 +71,17 @@
       }
       requestAnimationFrame(tick);
     }
-    </script>
-    <p> Sample Text </p>
-    <div id = "loadingMessage"> 
-        unable to access video stream. 
-    </div>
+  </script>
+  <p> Sample Text </p>
+  <div id="loadingMessage">
+    unable to access video stream.
+  </div>
 
-    <canvas id = "canvas" hidden> </canvas>
-    <div id = "output" hidden>
-        <div id = "outputMessage">No QR code detected.</div>
-        <div hidden><b>Data: </b> <span id = "outputData"></span></div>
-    </div>
+  <canvas id="canvas" hidden> </canvas>
+  <div id="output" hidden>
+    <div id="outputMessage">No QR code detected.</div>
+    <div hidden><b>Data: </b> <span id="outputData"></span></div>
+  </div>
 
 
 
