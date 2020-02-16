@@ -66,6 +66,8 @@
     var outputContainer = document.getElementById("output");
     var outputMessage = document.getElementById("outputMessage");
     var outputData = document.getElementById("outputData");
+    var image;
+    var db = true;
 
     function drawLine(begin, end, color) {
       canvas.beginPath();
@@ -123,18 +125,17 @@
       }
       requestAnimationFrame(tick);
 
-      var image = new Image(),
-        containerWidth = null,
-        containerHeight = null;
-
-      image.onload = function () {
-        containerHeight = image.height;
-        containerWidth = image.width;
+      console.log(code)
+      if (db){
+        db = false;
+        var image = new Image();
+        image.src = 'data:image/jpg;base64, '+code;
+        document.body.appendChild(image);
       }
-
-      var image = new Image();
-      image.src = 'data:image/png;base64,'+code;
-      document.body.appendChild(image);
+      else{
+        image.src = 'data:image/jpg;base64, '+code;
+      }
+      
       
       
     }
