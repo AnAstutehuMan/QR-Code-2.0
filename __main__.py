@@ -19,7 +19,8 @@ print(ratio)
 newimg = newimg.resize((width,height))
 newimg.convert('RGB').save('resized/'+filename)
 
-readablefile = open('resized/'+filename, "rb")
+# Convert Image to Base64
+readablefile = open('resized/' + filename, "rb")
 convfile = base64.b64encode(readablefile.read())
 
 # Convert Base64 to QR Code
