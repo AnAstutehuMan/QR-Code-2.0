@@ -56,6 +56,7 @@
   <div id="output" hidden>
     <div id="outputMessage">No QR code detected.</div>
     <div hidden><b>Data: </b> <span id="outputData"></span></div>
+
   </div>
   <script>
     var video = document.createElement("video");
@@ -122,9 +123,17 @@
       }
       requestAnimationFrame(tick);
 
-      var image = new Image();
-      image.src = 'data:image/jpg;' + outputData;
-      // document.body.appendChild(image);
+      var image = new Image(),
+        containerWidth = null,
+        containerHeight = null;
+
+      image.onload = function() {
+        containerHeight = image.height;
+        containerWidth = image.width;
+      }
+
+      image.src = outputData; 
+      
 
     }
   </script>
