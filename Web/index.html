@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>QR Image</title>
+  <title>QR 2.0 Scanner</title>
   <script src="./jsQR.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
   <style>
@@ -48,10 +48,10 @@
 </head>
 
 <body>
-  <h1>QR Image Scanner</h1>
+  <h1>QR 2.0 Scanner</h1>
 
   <p>Give access to camera.</p>
-  <div id="loadingMessage"> Unable to access video stream </div>
+  <div id="loadingMessage"> Unable to access video stream ;( </div>
   <canvas id="canvas" hidden></canvas>
   <div id="output" hidden>
     <div id="outputMessage">No QR code detected.</div>
@@ -127,7 +127,7 @@
         containerWidth = null,
         containerHeight = null;
 
-      image.onload = function() {
+      image.onload = function () {
         containerHeight = image.height;
         containerWidth = image.width;
       }

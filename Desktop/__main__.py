@@ -5,6 +5,7 @@ import shutil
 import time
 import tkinter
 from pathlib import Path
+
 import PIL
 import qrcode
 import qrcode.image.svg
@@ -13,8 +14,9 @@ from PIL import Image, ImageTk
 rootdir = os.path.dirname(os.path.realpath(__file__))
 fs = False
 
+
 def reSize(path):
-    newImg = Image.open(os.path.join(rootdir,path))
+    newImg = Image.open(os.path.join(rootdir, path))
     width = 150
     ratio = width/float(newImg.size[0])
     height = int(float(newImg.size[1])*ratio)
@@ -53,8 +55,9 @@ def base64ToQR(convFile, path):
 
     qr = Image.open(os.path.join(rootdir, 'qr/QR - ' + path))
     qrrender = ImageTk.PhotoImage(qr)
-    img.config(image = qrrender)
+    img.config(image=qrrender)
     img.image = qrrender
+
 
 def tooglefull():
     if not fs:
@@ -63,15 +66,17 @@ def tooglefull():
     elif fs:
         window.attributes("-fullscreen", False)
         fs = False
+
+
 window = tkinter.Tk()
 window.title("QR Image")
 window.geometry("500x250")
 lbl = tkinter.Label(window, text="Enter the Image path:  ")
-lbl.config(width = 25)
+lbl.config(width=25)
 lbl.grid(column=0, row=0)
 
 fileName = tkinter.Entry(window, width=10)
-fileName.config(width = 25)
+fileName.config(width=25)
 fileName.grid(column=1, row=0)
 
 
@@ -84,16 +89,15 @@ def clicked():
     print("Entered the Path!")
 
 
-
 btn1 = tkinter.Button(window, text="Submit", command=clicked)
-btn1.config(width = 10)
+btn1.config(width=10)
 btn1.grid(column=2, row=0)
 
 btn1 = tkinter.Button(window, text="FullScreen", command=tooglefull)
-btn1.config(width = 10)
+btn1.config(width=10)
 btn1.grid(column=3, row=0)
 
 img = tkinter.Label(window)
-img.place(x = 20, y = 50)
+img.place(x=20, y=50)
 
 window.mainloop()
