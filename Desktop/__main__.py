@@ -3,19 +3,12 @@ import math
 import os
 import shutil
 import time
-from tkinter import *
-
+import tkinter
+from pathlib import Path
 import PIL
 import qrcode
 import qrcode.image.svg
 from PIL import Image
-
-main = tkinter.Tk()
-
-main.title("BASE-64 Image to QR")
-
-fileselector = tkinter.Entry(main)
-fileselector.grid(row = '2', column = '1')
 
 def reSize(path):
     newImg = Image.open(path)
@@ -54,32 +47,26 @@ def base64ToQR(convFile, path):
     newImageToGenerate.save('QR/QR - ' + path)
 
 
-window = Tk()
+window = tkinter.Tk()
 window.title("QR Image")
 window.geometry('250x250')
-lbl = Label(window, text="Enter the Image path:  ")
+lbl = tkinter.Label(window, text="Enter the Image path:  ")
 lbl.grid(column=0, row=0)
 
-fileName = Entry(window, width=10)
+fileName = tkinter.Entry(window, width=10)
 fileName.grid(column=1, row=0)
 
-path = str(fileName)
-print(path)
 
-
-def clicked(path):
+def clicked():
+    path = str(Path(fileName.get()).resolve())
+    print(path)
     lbl.configure(text="Converting the Image to QR")
     reSize(path)
     print("Entered the Path!")
 
 
-path = str(fileName)
-print(path)
 
-btn1 = Button(window, text="Submit", command=clicked)
+btn1 = tkinter.Button(window, text="Submit", command=clicked)
 btn1.grid(column=2, row=0)
-
-btn2 = Button(window, text="Quit", command=window.destroy)
-btn2.grid(column=3, row=0)
 
 window.mainloop()
