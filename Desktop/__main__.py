@@ -6,18 +6,19 @@ import time
 import tkinter
 import PIL
 import qrcode
-import qrcode.image.svg 
+import qrcode.image.svg
 from PIL import Image
 
 main = tkinter.Tk()
 
-title = tkinter.Label(main, text = "BASE-64 Image to QR")
-title.grid(row = '1', column = '1')
+title = tkinter.Label(main, text="BASE-64 Image to QR")
+title.grid(row='1', column='1')
 
 fileselector = tkinter.Entry(main)
-fileselector.grid(row = '2', column = '1')
+fileselector.grid(row='2', column='1')
 
 filename = "test.jpg"
+
 
 def conv():
     width = 150
@@ -25,7 +26,7 @@ def conv():
     ratio = width/float(newimg.size[0])
     height = int(float(newimg.size[1])*ratio)
     print(ratio)
-    newimg = newimg.resize((width,height)).show()
+    newimg = newimg.resize((width, height)).show()
     newimg.convert('RGB').save('resized/'+filename)
 
     # Convert Image to Base64
@@ -46,7 +47,6 @@ def conv():
 
     img = qr.make_image(fill_color="black", back_color="white")
     img.save('qr/qr'+filename)
-
 
 
 main.mainloop()
