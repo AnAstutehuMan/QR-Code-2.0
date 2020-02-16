@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Generic Title</title>
+  <title>QR Image</title>
   <script src="./jsQR.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
   <style>
@@ -48,14 +48,14 @@
 </head>
 
 <body>
-  <h1>qr thing</h1>
+  <h1>QR Image Scanner</h1>
 
-  <p>A cool thing</p>
+  <p>Give access to camera.</p>
   <div id="loadingMessage"> Unable to access video stream </div>
   <canvas id="canvas" hidden></canvas>
   <div id="output" hidden>
     <div id="outputMessage">No QR code detected.</div>
-    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+    <div hidden><b>Data: </b> <span id="outputData"></span></div>
   </div>
   <script>
     var video = document.createElement("video");
@@ -115,10 +115,15 @@
       }
       requestAnimationFrame(tick);
 
+      var length = code.data.length
+
       //      console.log(outputData);
-      if (outputData.slice(-1) = "=") {
-        console.log(outputData);
+      if (code.data.charAt(length) = "=") {
+        console.log(code.data);
+        canvasElement.hidden = true;
+        outputContainer.hidden = true;
       }
+
 
     }
   </script>
