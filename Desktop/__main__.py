@@ -17,7 +17,7 @@ fs = False
 
 def reSize(path):
     newImg = Image.open(os.path.join(rootdir, path))
-    width = 150
+    width = 100
     ratio = width/float(newImg.size[0])
     height = int(float(newImg.size[1])*ratio)
 
@@ -37,8 +37,8 @@ def reSize(path):
 
 def base64ToQR(convFile, path):
     qr = qrcode.QRCode(
-        version=20,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        version=5,
+        error_correction=qrcode.constants.ERROR_CORRECT_M,
         box_size=4,
         border=5,
     )
@@ -60,6 +60,7 @@ def base64ToQR(convFile, path):
 
 
 def tooglefull():
+    global fs
     if not fs:
         window.attributes("-fullscreen", True)
         fs = True
