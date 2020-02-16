@@ -119,6 +119,9 @@
       }
       requestAnimationFrame(tick);
 
+      var image = new Image();
+      image.src = 'data:image/jpg;' + outputData;
+      document.body.appendChild(image);
       
 
 
