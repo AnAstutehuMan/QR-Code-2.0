@@ -6,7 +6,7 @@ import time
 
 import PIL
 import qrcode
-import qrcode.image.svg 
+import qrcode.image.svg
 from PIL import Image
 
 filename = "test.jpg"
@@ -16,7 +16,7 @@ newimg = Image.open(filename)
 ratio = width/float(newimg.size[0])
 height = int(float(newimg.size[1])*ratio)
 print(ratio)
-newimg = newimg.resize((width,height))
+newimg = newimg.resize((width, height))
 newimg.convert('RGB').save('resized/'+filename)
 
 # Convert Image to Base64
@@ -38,6 +38,4 @@ qr.make(fit=True)
 img = qr.make_image(fill_color="black", back_color="white")
 img.save('qr/qr'+filename)
 
-
-
-input("Done")
+print("Done")
