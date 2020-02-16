@@ -111,19 +111,17 @@
           console.log(outputData.data);
           canvasElement.hidden = true;
           outputContainer.hidden = true;
-          canvasElement.hidden = true; 
+          canvasElement.hidden = true;
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
-        } 
+        }
       }
       requestAnimationFrame(tick);
 
       var image = new Image();
       image.src = 'data:image/jpg;' + outputData;
       document.body.appendChild(image);
-      
-
 
     }
   </script>
