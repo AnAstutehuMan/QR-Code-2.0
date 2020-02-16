@@ -11,8 +11,7 @@ from PIL import Image
 
 main = tkinter.Tk()
 
-title = tkinter.Label(main, text = "BASE-64 Image to QR")
-title.grid(row = '1', column = '1')
+main.title("BASE-64 Image to QR")
 
 fileselector = tkinter.Entry(main)
 fileselector.grid(row = '2', column = '1')
