@@ -6,6 +6,7 @@ import time
 
 import PIL
 import qrcode
+import qrcode.image.svg 
 from PIL import Image
 
 filename = "test.jpg"
@@ -31,5 +32,7 @@ qr.make(fit=True)
 
 img = qr.make_image(fill_color="black", back_color="white")
 img.save('qr.jpg')
+
+
 
 input("Done")
