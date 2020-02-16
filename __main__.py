@@ -11,8 +11,12 @@ from PIL import Image
 
 filename = "test.jpg"
 
+width = 150
 newimg = Image.open(filename)
-newimg = newimg.resize((100,100))
+ratio = width/float(newimg.size[0])
+height = int(float(newimg.size[1])*ratio)
+print(ratio)
+newimg = newimg.resize((width,height))
 newimg.convert('RGB').save('resized/'+filename)
 
 readablefile = open('resized/'+filename, "rb")
@@ -20,7 +24,7 @@ convfile = base64.b64encode(readablefile.read())
 
 # Convert Base64 to QR Code
 qr = qrcode.QRCode(
-    version=10,
+    version=40,
     error_correction=qrcode.constants.ERROR_CORRECT_L,
     box_size=10,
     border=5,
